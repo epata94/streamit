@@ -28,14 +28,17 @@ def fontRegistered():
 def main():
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
-    # fontname = st.selectbox("폰트 선택", unique(fontNames))
-    fontname = st.selectbox("폰트 선택", unique(fontNames))
-
-    plt.rc('font', family=fontname)
+    print(f'fontName: {fontNames}')
+    fontname = st.selectbox("폰트 선택", unique(fontNames) )
+    # fontname = st.selectbox("폰트 선택", unique(fontNames), index=fontNames.index('NanumGothic'))
+    # fontname = st.selectbox("폰트 선택", 'NanumGothic')
+    'NanumGothic'
+    # plt.rc('font', family=fontname)
+    plt.rc('font', family='NanumGothic')
     tips = sns.load_dataset("tips")
     fig, ax = plt.subplots()
     sns.scatterplot(data=tips, x='total_bill', y='tip', hue='day')
-    ax.set_title("한글 테스트")
+    ax.set_title(f"한글 테스트 ")
     st.pyplot(fig)
 
     st.dataframe(tips)
