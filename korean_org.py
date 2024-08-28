@@ -3,6 +3,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+
+# 한글폰트 적용
+# 폰트 적용
 import os
 import matplotlib.font_manager as fm  # 폰트 관련 용도 as fm
 
@@ -25,14 +28,7 @@ def fontRegistered():
 def main():
     fontRegistered()
     fontNames = [f.name for f in fm.fontManager.ttflist]
-
-    # Default font 설정
-    if 'KoreanSNMB' in fontNames:
-        default_font = 'KoreanSNMB'
-    else:
-        default_font = fontNames[0]  # 폰트가 없을 경우 첫번째 폰트 선택
-
-    fontname = st.selectbox("폰트 선택", unique(fontNames), index=fontNames.index(default_font))
+    fontname = st.selectbox("폰트 선택", unique(fontNames))
 
     plt.rc('font', family=fontname)
     tips = sns.load_dataset("tips")
