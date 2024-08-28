@@ -9,6 +9,7 @@ import os
 # font_path = 'C:\\Windows\\Fonts\\malgun.ttf'  # 필요한 폰트 파일 경로
 # font_path = 'customFonts/malgun.ttf'  # 필요한 폰트 파일 경로
 font_path = os.path.join(os.getcwd(), "customFonts/malgun.ttf")
+print(font_path)
 font_name = fm.FontProperties(fname=font_path).get_name()
 
 # if platform.system() == 'Linux':
@@ -62,7 +63,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 헤더
-st.markdown("<div class='header'><h2>알파시티 대시보드</h2></div>", unsafe_allow_html=True)
+st.markdown(f"<div class='header'><h2>알파시티 대시보드: {font_path}</h2></div>", unsafe_allow_html=True)
 
 # 인기 아이템 데이터
 data = {
