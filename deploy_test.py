@@ -6,11 +6,11 @@ import platform
 import os
 
 # 한글 폰트 설정
-font_path = 'C:\\Windows\\Fonts\\malgun.ttf'  # 필요한 폰트 파일 경로
+# font_path = 'C:\\Windows\\Fonts\\malgun.ttf'  # 필요한 폰트 파일 경로
 # font_path = 'customFonts/malgun.ttf'  # 필요한 폰트 파일 경로
 # font_path = os.path.join(os.getcwd(), "customFonts/malgun.ttf")
 # font_path = os.path.join(os.getcwd(), "customFonts/NanumGothic-Regular.ttf")
-font_name = fm.FontProperties(fname=font_path).get_name()
+# font_name = fm.FontProperties(fname=font_path).get_name()
 
 # if platform.system() == 'Linux':
 #     plt.rc('font', family='KoreanSNMB')
