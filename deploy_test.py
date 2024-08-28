@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import platform
 import os
+import numpy as np
 
 # 한글 폰트 설정
 # font_path = 'C:\\Windows\\Fonts\\malgun.ttf'  # 필요한 폰트 파일 경로
@@ -16,14 +17,33 @@ import os
 #     plt.rc('font', family='KoreanSNMB')
 # else:
 #     plt.rc('font', family=font_name)
-
-plt.rc('font', family='KoreanSNMB')
-
 # 페이지 레이아웃 설정
 st.set_page_config(
     page_title="알파시티 대시보드",
     layout="wide",
 )
+def unique(list):
+    x = np.array(list)
+    return np.unique(x)
+
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/customFonts']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
+
+fontRegistered()
+fontNames = [f.name for f in fm.fontManager.ttflist]
+# fontname = st.selectbox("폰트 선택", unique(fontNames))
+# fontname = st.selectbox("폰트 선택", unique(fontNames), index=fontNames.index('NanumGothic'))
+# fontname = st.selectbox("폰트 선택", 'NanumGothic')
+# plt.rc('font', family=fontname)
+plt.rc('font', family='NanumGothic')
+
+
 
 # 스타일 적용을 위한 CSS
 st.markdown("""
